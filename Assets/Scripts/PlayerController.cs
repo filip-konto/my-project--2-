@@ -15,6 +15,13 @@ public class PlayerController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
     }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.tag == "PickUp")
+        {
+            hit.gameObject.GetComponent<PickUp>().Picked();
+        }
+    }
 
     // Update is called once per frame
     void Update()
